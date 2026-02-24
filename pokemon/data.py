@@ -1,9 +1,9 @@
-pokemon_types =[
- 'water', 'Fire', 'Grass', 'Flying', 'Rock',
- 'Ground', 'Steel', 'Electric', 'Fairy', 'Ghost',
- 'Dark', 'Dragon', 'Ice','Bug', 'Fighting', 'poison',
- 'Psychic', 'Normal', 
- ]
+pokemon_types = [
+  'Water', 'Fire', 'Grass', 'Flying', 'Rock',
+  'Ground', 'Steel', 'Electric', 'Fairy', 'Ghost',
+  'Dark', 'Dragon', 'Ice', 'Bug', 'Fighting', 'Poison',
+  'Psychic', 'Normal' 
+]
 
 from pokemon.models import Type
-type =[Type(name=type) for type in pokemon_types]
+types = [Type(name=type) for type in pokemon_types]

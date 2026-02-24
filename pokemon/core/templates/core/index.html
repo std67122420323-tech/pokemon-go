@@ -5,34 +5,31 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container mt-3 mb-3">
+  <div class="container mt-3">
     <h1>{{title}}</h1>
     <hr>
     <div class="row">
-      <div class="col-md-6">
-        <a href="#" class="btn btn-outline-secondary">
-          <i class="bi bi-file-earmark-plus"></i>
-          New Pokedex
-        </a>
-      </div>
-      <div class="col-md-6"></div>
+      {% for pokemon in pokemons %}
+        <div class="col-lg-3">
+          <div class="card mt-4 card-pokemon">
+            <a href="{{url_for('core.detail', id=pokemon.id)}}">
+              <img src="{{pokemon.img_url}}" alt="" class="card-img-top bg-secondary">
+            </a>
+            <div class="card-body">
+              <h2 class="text-success">{{pokemon.name}}</h2>
+              {% for type in pokemon.types %}
+                <a href="#" class="btn btn-outline-secondary btn-sm">
+                  {{type.name}}
+                </a>
+              {% endfor %}
+              
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      
     </div>
-    <table class="table table-hover mt-3">
-      <thead>
-        <th>#</th>
-        <th>Pokemon Name</th>
-        <th>Created At</th>
-      </thead>
-      <tbody>
-        {% for poke in pokemons %}
-          <tr>
-            <td>{{loop.index}}</td>
-            <td>{{poke.name}}</td>
-            <td>{{poke.created_at}}</td>
-          </tr>
-        {% endfor %}
-        
-      </tbody>
-    </table>
+    <br>
+    {% include "core/pagination.html" %}
   </div>
 {% endblock %}
