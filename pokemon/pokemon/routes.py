@@ -52,6 +52,8 @@ def new_pokemon():
     flash('Add new pokemon successful!', 'success')
     return redirect(url_for('pokemon.index'))
 
-  return render_template('pokemon/new_pokemon.html', 
-                         title='New Pokemon Page',
-                         pokemon_types=pokemon_types)
+  return render_template(
+    'pokemon/new_pokemon.html',
+    title='New Pokemon Page',
+    pokemon_types=pokemon_types
+)
